@@ -1,0 +1,29 @@
+{
+  "name": "comment-api",
+  "version": "0.0.1",
+  "description": "api de comentarios simple para web desenvolvida em nextjs e vuejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JefteCosta/comment-api.git"
+  },
+  "keywords": [
+    "api",
+    "DevOps"
+  ],
+  "author": "Jefte A. Costa <jefteamorim@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JefteCosta/comment-api/issues"
+  },
+  "homepage": "https://github.com/JefteCosta/comment-api#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "husky": "^7.0.2",
+    "standard-version": "^9.3.1"
+  }
+}
