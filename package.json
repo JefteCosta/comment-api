@@ -1,6 +1,6 @@
 {
   "name": "comment-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "api de comentarios simple para web desenvolvida em nextjs e vuejs",
   "main": "index.js",
   "scripts": {
