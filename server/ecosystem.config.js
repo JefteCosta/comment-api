@@ -3,6 +3,7 @@ module.exports = {
     {
       name: 'Server commiets',
       script: "./node_modules/next/dist/bin/next",
+      args:"start",
       instances: 1,
       autorestart: true,
       exec_mode: 'fork',
