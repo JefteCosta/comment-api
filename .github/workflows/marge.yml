@@ -41,4 +41,4 @@ jobs:
           git clone https://github.com/JefteCosta/comment-api.git
           git checkout develop
           git marge main
-          git push
+          git push main
