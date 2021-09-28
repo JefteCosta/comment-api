@@ -1,33 +1,40 @@
-name: Test
+on: ["push", "pull_request"]
 
-on: ['push', 'pull_request']
+name: Test Coveralls Parallel
 
 jobs:
-  code:
-    name: Test code
+  test:
     runs-on: ubuntu-latest
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
-
+    strategy:
+      matrix:
+        test_number:
+          - 1
+          - 2
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+    - uses: actions/checkout@master
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@master
+      with:
+        version: 10.x
 
-      - name: Set up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
+    - name: npm install
+      run: npm install
 
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+    - name: Test ${{ matrix.test_number }}
+      run: make test-coverage-${{ matrix.test_number }}
+    - name: Coveralls Parallel
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
+        flag-name: run-${{ matrix.test_number }}
+        parallel: true
 
-      - name: Run Jest
-        run: yarn test --coverage
-
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.REPO_TOKEN }}
+  finish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
+        parallel-finished: true
