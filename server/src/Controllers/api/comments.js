@@ -4,7 +4,7 @@ module.exports = app =>{
 
     }
     const show = async (req, res, next)=>{
-        res.json({date: new Date()})
+        res.json({date: new Date(), name:'jefte amorim da costa'})
     }
-    
+    return {show}
 }
