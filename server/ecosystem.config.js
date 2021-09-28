@@ -2,7 +2,7 @@ module.exports = {
     apps : [
     {
       name: 'Server commiets',
-      script: "./node_modules/next/dist/bin/next",
+      script: "index.js",
       args:"start",
       instances: 1,
       autorestart: true,

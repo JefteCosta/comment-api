@@ -16,7 +16,7 @@ app.db = database;
   .then('./src/Schedules')
   .into(app)
 
-  app.listen(80, () => {
+  app.listen(8080, () => {
     console.log('sistema iniciado com sucesso na porta: ',process.env.HOST_PORT);
     
   })
